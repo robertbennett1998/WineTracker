@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineTracker.Web", "WineTracker.Web\src\WineTracker.Web\WineTracker.Web.csproj", "{12840A8C-AFED-49FB-A0E8-5A3612C9F0D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineTracker.Wine.Service.Api", "WineTracker.Wine.Service\src\WineTracker.Wine.Service.Api\WineTracker.Wine.Service.Api.csproj", "{B1F982AE-6ED2-4C2A-91CA-E05C15172DE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineTracker.Wine.Service.Infrastructure", "WineTracker.Wine.Service\src\WineTracker.Wine.Service.Infrastructure\WineTracker.Wine.Service.Infrastructure.csproj", "{BA8CBF84-E590-4BCE-8165-AB6561C2C373}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineTracker.Wine.Service.Application", "WineTracker.Wine.Service\src\WineTracker.Wine.Service.Application\WineTracker.Wine.Service.Application.csproj", "{636E43A5-A70D-49CF-92F9-54D7F61D6BE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineTracker.Wine.Service.Domain", "WineTracker.Wine.Service\src\WineTracker.Wine.Service.Domain\WineTracker.Wine.Service.Domain.csproj", "{3FB3D077-52DA-483C-8221-270D7C991AC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12840A8C-AFED-49FB-A0E8-5A3612C9F0D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12840A8C-AFED-49FB-A0E8-5A3612C9F0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12840A8C-AFED-49FB-A0E8-5A3612C9F0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12840A8C-AFED-49FB-A0E8-5A3612C9F0D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1F982AE-6ED2-4C2A-91CA-E05C15172DE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1F982AE-6ED2-4C2A-91CA-E05C15172DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1F982AE-6ED2-4C2A-91CA-E05C15172DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1F982AE-6ED2-4C2A-91CA-E05C15172DE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA8CBF84-E590-4BCE-8165-AB6561C2C373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA8CBF84-E590-4BCE-8165-AB6561C2C373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA8CBF84-E590-4BCE-8165-AB6561C2C373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA8CBF84-E590-4BCE-8165-AB6561C2C373}.Release|Any CPU.Build.0 = Release|Any CPU
+		{636E43A5-A70D-49CF-92F9-54D7F61D6BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{636E43A5-A70D-49CF-92F9-54D7F61D6BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{636E43A5-A70D-49CF-92F9-54D7F61D6BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{636E43A5-A70D-49CF-92F9-54D7F61D6BE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FB3D077-52DA-483C-8221-270D7C991AC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FB3D077-52DA-483C-8221-270D7C991AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FB3D077-52DA-483C-8221-270D7C991AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FB3D077-52DA-483C-8221-270D7C991AC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
