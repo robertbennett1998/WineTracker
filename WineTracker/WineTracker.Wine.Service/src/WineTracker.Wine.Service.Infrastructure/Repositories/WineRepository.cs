@@ -24,12 +24,6 @@ public sealed class WineRepository : IWineRepository
         {
             
         }
-
-        public string Resolve(WineAggregate aggregateRoot) =>
-            aggregateRoot.Id.ToString();
-
-        public static string GetPartitionKey(WineAggregate aggregate) => 
-            aggregate.Id.ToString();
     }
 
     public WineRepository(IEventStore<EventItem> eventStore)
