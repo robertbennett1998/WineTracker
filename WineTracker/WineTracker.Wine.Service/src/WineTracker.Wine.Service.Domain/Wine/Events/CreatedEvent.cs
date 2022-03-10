@@ -3,6 +3,7 @@
 namespace WineTracker.Wine.Service.Domain.Wine.Events;
 
 public record CreatedEvent(
+    Guid Id,
     string Name, 
     string? Producer, 
     string? Region, 

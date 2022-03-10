@@ -7,7 +7,34 @@ namespace WineTracker.Wine.Service.Domain.Wine;
 
 public partial class WineAggregate
 {
-    public void Create(string name,
+    public static WineAggregate CreateWineAggregate(
+        string name,
+        string? producer,
+        string? region,
+        string? country,
+        int? vintage,
+        string? kind,
+        int? price,
+        IReadOnlyList<string>? grapeVarietals)
+
+    {
+        var wine = new WineAggregate();
+        
+        wine.Create(
+            name, 
+            producer,
+            region, 
+            country, 
+            vintage, 
+            kind, 
+            price, 
+            grapeVarietals);
+
+        return wine;
+    }
+    
+    public void Create(
+        string name,
         string? producer,
         string? region,
         string? country,
@@ -24,11 +51,22 @@ public partial class WineAggregate
                 typeof(WineAggregate));
         }
         
-        AddEvent(new CreatedEvent(name, producer, region, country, vintage, kind, price, grapeVarietals));
+        AddEvent(
+            new CreatedEvent(
+                Guid.NewGuid(), 
+                name, 
+                producer, 
+                region, 
+                country, 
+                vintage, 
+                kind, 
+                price, 
+                grapeVarietals));
     }
     
     private void ApplyCreatedEvent(CreatedEvent createdEvent)
     {
+        Id = createdEvent.Id;
         Name = createdEvent.Name;
         Producer = createdEvent.Producer;
         Region = createdEvent.Region;

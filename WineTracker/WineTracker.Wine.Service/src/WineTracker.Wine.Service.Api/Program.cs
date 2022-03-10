@@ -1,4 +1,7 @@
+using Convey.CQRS.Commands;
 using WineTracker.Wine.Service.Application;
+using WineTracker.Wine.Service.Application.Commands;
+using WineTracker.Wine.Service.Application.Extensions;
 using WineTracker.Wine.Service.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,5 +31,10 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapPost("api/wine/create", async (CreateWine createWine, ICommandDispatcher commandDispatcher) =>
+{
+    await commandDispatcher.SendAsync(createWine);
+});
 
 app.Run();
