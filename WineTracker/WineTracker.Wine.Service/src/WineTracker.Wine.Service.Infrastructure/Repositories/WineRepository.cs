@@ -24,6 +24,18 @@ public sealed class WineRepository : IWineRepository
         {
             
         }
+        
+        public EventItem(IDomainEvent domainEvent, string partitionKey) 
+            : base(domainEvent, partitionKey)
+        {
+            
+        }
+        
+        public EventItem(AtomicEvent atomic, string partitionKey) 
+            : base(atomic, partitionKey)
+        {
+            
+        }
     }
 
     public WineRepository(IEventStore<EventItem> eventStore)
