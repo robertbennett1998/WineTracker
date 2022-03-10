@@ -11,7 +11,7 @@ public sealed class WineRepository : IWineRepository
 {
     private readonly IEventStore<EventItem> _eventStore;
 
-    public class EventItem : DefaultEventItem, IPartitionKeyResolver<WineAggregate>
+    public class EventItem : DefaultEventItem
     {
         public EventItem(IDomainEvent domainEvent, Guid wineId) 
             : base(domainEvent, wineId.ToString())
