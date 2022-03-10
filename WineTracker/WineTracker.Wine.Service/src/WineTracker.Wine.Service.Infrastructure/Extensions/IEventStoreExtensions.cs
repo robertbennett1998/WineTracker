@@ -3,40 +3,29 @@ using Microsoft.Azure.CosmosEventSourcing.Aggregates;
 using Microsoft.Azure.CosmosEventSourcing.Items;
 using Microsoft.Azure.CosmosEventSourcing.Stores;
 using WineTracker.Wine.Service.Domain.Attributes;
+using WineTracker.Wine.Service.Infrastructure.Repositories;
 
 namespace WineTracker.Wine.Service.Infrastructure.Extensions;
 
 public static class IEventStoreExtensions
 {
-    public static async ValueTask PersistAsync<TEventItem>(
+    public static async ValueTask PersistAsync<TEventItem, TAggregate>(
         this IEventStore<TEventItem> eventStore, 
-        IAggregateRoot aggregateRoot, string? partitionKey = null)
-        where TEventItem : EventItem
+        TAggregate aggregate)
+        where TAggregate : IAggregateRoot
+        where TEventItem : EventItem, IPartitionKeyResolver<TAggregate>
     {
-        if (partitionKey is null)
-        {
-            PropertyInfo partitionKeyProperty = aggregateRoot
-                .GetType()
-                .GetProperties()
-                .Single(x
-                    => x.GetCustomAttributes()
-                        .Any(y =>
-                            y is EventSourcingPartitionKeyAttribute));
-            
-            partitionKey = partitionKeyProperty.GetValue(aggregateRoot)?.ToString() ?? 
-                                throw new InvalidOperationException();
-        }
-        
-        var events = aggregateRoot.NewEvents.Select(x => 
+
+        var events = aggregate.NewEvents.Select(x => 
             Activator.CreateInstance(
                 typeof(TEventItem), 
                 x, 
-                partitionKey) as TEventItem).ToList();
+                TEventItem.GetPartitionKey(aggregate)) as TEventItem).ToList();
         
         events.Add(Activator.CreateInstance(
             typeof(TEventItem), 
-            aggregateRoot.AtomicEvent, 
-            partitionKey) as TEventItem);
+            aggregate.AtomicEvent, 
+            TEventItem.GetPartitionKey(aggregate)) as TEventItem);
 
         if (events.Any(x => x == null))
         {
